@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Download - {{ original_filename }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='jarvis.css') }}">
+</head>
+
+<body>
+
+<div class="holo" style="width:150px;height:150px;top:15%;right:10%;"></div>
+
+<div class="download-container">
+    <h1>{{ original_filename }}</h1>
+    <p>Uploaded at: {{ uploaded_at }}</p>
+    <p><a href="{{ download_url }}">⬇ Click to download</a></p>
+</div>
+
+<script>
+    const t = new SpeechSynthesisUtterance("Your download is ready sir.");
+    t.pitch = 1.2; t.rate = 1.0;
+    speechSynthesis.speak(t);
+</script>
+
+</body>
+</html>
