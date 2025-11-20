@@ -1,0 +1,1 @@
+This is a empty folder in this folder the files, images or etc you will share will get save in uploads folder and a folder can't be uploaded empty.
