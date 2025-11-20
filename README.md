@@ -42,6 +42,7 @@ All uploads are stored in a lightweight SQLite database:
 
 ### **1. Clone the Repository**
 
-```bash
-git clone https://github.com/<yourname>/python-file-sharing-app.git
+```bash[
+https://github.com/Nabhansh/File-Sharing-App.git
 cd python-file-sharing-app
+
