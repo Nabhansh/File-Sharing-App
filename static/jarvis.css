@@ -1,0 +1,291 @@
+/* -------------------- GLOBAL -------------------- */
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #0a0f1f;
+    color: #00eaff;
+    overflow-x: hidden;
+}
+
+/* HUD GRID BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(0,234,255,0.1), transparent 70%),
+                repeating-linear-gradient(0deg, rgba(0,234,255,0.05) 0px, transparent 1px, transparent 50px),
+                repeating-linear-gradient(90deg, rgba(0,234,255,0.05) 0px, transparent 1px, transparent 50px);
+    animation: gridMove 15s linear infinite;
+    z-index: -1;
+}
+
+@keyframes gridMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+/* -------------------- HEADER -------------------- */
+h1 {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 42px;
+    text-shadow: 0 0 12px #00eaff;
+}
+
+/* -------------------- CONTAINER -------------------- */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+/* -------------------- CARDS -------------------- */
+.card {
+    background: rgba(0, 20, 40, 0.6);
+    border: 1px solid #00eaff55;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 15px #00eaff33;
+    backdrop-filter: blur(6px);
+}
+
+/* -------------------- INPUTS -------------------- */
+input[type=file] {
+    background: #00101f;
+    border: 1px solid #00eaff55;
+    padding: 10px;
+    border-radius: 8px;
+    width: 70%;
+    color: #00eaff;
+}
+
+button {
+    background: #00eaff;
+    border: none;
+    padding: 10px 20px;
+    color: black;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    box-shadow: 0 0 15px #00eaffaa;
+    transform: scale(1.05);
+}
+
+a { color: #00eaff; }
+
+/* -------------------- FLOATING HOLOGRAMS -------------------- */
+.holo {
+    position: fixed;
+    border-radius: 50%;
+    border: 2px solid #00eaff55;
+    animation: holoFloat 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes holoFloat {
+    0% { transform: translateY(0) scale(1); opacity: 0.3; }
+    50% { transform: translateY(-20px) scale(1.1); opacity: 0.6; }
+    100% { transform: translateY(0) scale(1); opacity: 0.3; }
+}
+
+/* -------------------- TYPEWRITER -------------------- */
+.typewriter {
+    overflow: hidden;
+    border-right: 3px solid #00eaff;
+    white-space: nowrap;
+    animation: typing 4s steps(40) forwards, blink 0.7s infinite;
+    width: 0;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 360px; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* -------------------- DOWNLOAD PAGE -------------------- */
+.download-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 30px;
+    background: rgba(0, 20, 40, 0.6);
+    border-radius: 12px;
+    border: 1px solid #00eaff55;
+    box-shadow: 0 0 15px #00eaff33;
+    backdrop-filter: blur(6px);
+    text-align: center;
+}
+
+.download-container a {
+    color: #00eaff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.download-container a:hover {
+    text-shadow: 0 0 12px #00eaff;
+}
+
+/* -------------------- ARC REACTOR LOADER -------------------- */
+#arc-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 10, 20, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    transition: 0.4s ease;
+}
+
+.arc-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.arc-reactor {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    animation: spin 3s linear infinite;
+}
+
+.core {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #00eaff, #006e96);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 25px #00eaff, 0 0 60px #00eaff;
+}
+
+.ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 6px solid #00eaff;
+    box-shadow: 0 0 20px #00eaff;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.ring1 {
+    width: 120px;
+    height: 120px;
+    top: 30px;
+    left: 30px;
+}
+
+.ring2 {
+    width: 150px;
+    height: 150px;
+    top: 15px;
+    left: 15px;
+    animation-delay: 0.3s;
+}
+
+.ring3 {
+    width: 180px;
+    height: 180px;
+    top: 0;
+    left: 0;
+    animation-delay: 0.6s;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* -------------------- IDLE MINI ARC REACTOR -------------------- */
+#idle-reactor {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    z-index: 50;
+}
+
+#idle-reactor .core {
+    width: 25px;
+    height: 25px;
+    box-shadow: 0 0 15px #00eaff, 0 0 40px #00eaff;
+}
+
+#idle-reactor .ring1 {
+    width: 50px;
+    height: 50px;
+}
+
+#idle-reactor .ring2 {
+    width: 65px;
+    height: 65px;
+    animation-delay: 0.3s;
+}
+
+#idle-reactor .ring3 {
+    width: 80px;
+    height: 80}
+
+/* -------------------- IRON MAN HOLOGRAM -------------------- */
+
+#iron-holo {
+    position: fixed;
+    right: 40px;
+    top: 120px;
+    z-index: 999;
+    width: 420px;      /* BIGGER */
+    height: auto;
+    filter: drop-shadow(0 0 35px #00eaffaa)
+            drop-shadow(0 0 80px #00eaff55);
+    animation: holoFloat 5s ease-in-out infinite, glowPulse 2s infinite alternate;
+}
+
+#iron-holo img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    opacity: 0.92;
+}
+
+
+/* Slight hologram breathing effect */
+@keyframes hologramPulse {
+    0%, 100% { opacity: 0.75; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.03); }
+}
+
+/* Floating motion (different from circles) */
+@keyframes holoFloat2 {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-18px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes glowPulse {
+    from { filter: drop-shadow(0 0 25px #00eaffaa); }
+    to   { filter: drop-shadow(0 0 55px #00eaff); }
+}
